@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
-import modelo.Cliente;
 
 
 /**
@@ -39,7 +38,7 @@ public class PedidoVista extends javax.swing.JFrame {
         txtPlatos = new javax.swing.JTextField();
         txtFecha = new javax.swing.JTextField();
         txtEstado = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextPane();
         lblTotal = new javax.swing.JLabel();
@@ -80,12 +79,12 @@ public class PedidoVista extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 153, 153));
-        jButton1.setText("Guardar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(0, 153, 153));
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
@@ -140,7 +139,7 @@ public class PedidoVista extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addGap(106, 106, 106))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnGuardar)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -182,7 +181,7 @@ public class PedidoVista extends javax.swing.JFrame {
                             .addComponent(lblPago)
                             .addComponent(txtPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1))
+                        .addComponent(btnGuardar))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2)))
@@ -196,38 +195,10 @@ public class PedidoVista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdPedidoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-    // Obtener ID del pedido
-    int idPedido = Integer.parseInt(txtIdPedido.getText());
-    
-    // Crear cliente con datos ingresados
-    Cliente cliente = new Cliente(1, txtCliente.getText(), "os@email.com", "123", "1234567890");
-    
-    // Crear lista de platos
-    java.util.List<modelo.Plato> listaPlatos = new java.util.ArrayList<>();
-    listaPlatos.add(new modelo.Plato(1, txtPlatos.getText(), Double.parseDouble(txtTotal.getText()), "Plato", "Plato principal"));
-    
-    // Crear fecha
-    java.util.Date fecha = new java.util.Date();
-    
-    // Crear pago
-    modelo.Pago pago = new modelo.Pago(1, Double.parseDouble(txtTotal.getText()), txtPago.getText(), "pendiente");
-    
-    // Crear pedido con los datos ingresados
-    modelo.Pedido pedidoCreado = new modelo.Pedido(
-        idPedido,
-        cliente,
-        listaPlatos,
-        fecha,
-        txtEstado.getText(),
-        Double.parseDouble(txtTotal.getText()),
-        pago
-    );
-    
-    // Mostrar resultado
-    txtResultado.setText(pedidoCreado.toString());
-    }//GEN-LAST:event_jButton1ActionPerformed
+
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,7 +237,7 @@ public class PedidoVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

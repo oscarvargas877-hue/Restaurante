@@ -3,8 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
-import modelo.Menu;
-import modelo.Plato;
+
 
 
 /**
@@ -35,7 +34,7 @@ public class MenuVista extends javax.swing.JFrame {
         txtDescripcion = new javax.swing.JTextField();
         txtLista = new javax.swing.JTextField();
         lblIdPago = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextPane();
@@ -59,12 +58,12 @@ public class MenuVista extends javax.swing.JFrame {
         lblIdPago.setForeground(new java.awt.Color(0, 153, 153));
         lblIdPago.setText("idMenú");
 
-        jButton1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 153, 153));
-        jButton1.setText("Guardar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(0, 153, 153));
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
@@ -91,7 +90,7 @@ public class MenuVista extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addComponent(btnGuardar)
                     .addComponent(lblMetodo)
                     .addComponent(lblMonto)
                     .addComponent(lblIdPago)
@@ -138,7 +137,7 @@ public class MenuVista extends javax.swing.JFrame {
                             .addComponent(lblLista)))
                     .addComponent(jLabel2))
                 .addGap(13, 13, 13)
-                .addComponent(jButton1)
+                .addComponent(btnGuardar)
                 .addGap(8, 8, 8)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
                 .addContainerGap())
@@ -151,29 +150,10 @@ public class MenuVista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdMenuActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        int IdMenu = Integer.parseInt(txtIdMenu.getText());
-        
-        java.util.List<modelo.Plato> listaPlatos = new java.util.ArrayList<>();
-        
-        // Creamos objetos Plato con datos simulados (o reales si vienen de otro lado)
-
-        Plato plato1 = new modelo.Plato(1, "Pizza con queso", 10.50, "Con queso y tomate", "plato sencillo");
-
-        Plato plato2 = new modelo.Plato(2, "Hamburguesa", 8.00, "Con carne y vegetales", "plato fuerte");
-
-        Plato plato3 = new modelo.Plato(3, "Refresco", 2.00, "Coca Cola 500ml", "bebida");
-        // Agregamos los platos a la lista
-        listaPlatos.add(plato1);
-        listaPlatos.add(plato2);
-        listaPlatos.add(plato3);
-        
-        Menu menu1 = new Menu(IdMenu,txtNombre.getText(),txtDescripcion.getText(),listaPlatos);
-        txtResultado.setText(menu1.toString());
-        
-   
-    }//GEN-LAST:event_jButton1ActionPerformed
+     
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,7 +192,7 @@ public class MenuVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

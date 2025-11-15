@@ -17,9 +17,9 @@ package modelo;
 public class Pago implements Ipago { // Aquí dice que "implementa" Ipago
     // Atributos
     private int idPago;
-    private double monto;
-    private String metodo; // "transferencia", "efectivo"
-    private String estado; // "pendiente", "completado", "fallido"
+    private double monto;   // Cantidad de dinero que se pagó Ejemplo: 45.50, 78.99, 125.00
+    private String metodo;// Forma de pago utilizada para realizar el pago Ejemplo: "Efectivo", "Tarjeta de crédito", "Tarjeta de débito", "Transferencia"
+    private String estado;  // Estado actual del pago (si fue aprobado, rechazado, pendiente, etc.)  Ejemplo: "Pagado", "Pendiente", "Rechazado", "En proceso"
 
     //Constructor
 

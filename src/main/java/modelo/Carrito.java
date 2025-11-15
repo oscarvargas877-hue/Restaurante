@@ -15,10 +15,9 @@ import java.util.List;  // Importamos la clase List para poder usar listas
  */
 public class Carrito {
     // Atributos
-    // Aquí está otra vez: una LISTA de objetos Plato
-    private List<Plato> listaPlatos;//Representa los platos que el cliente ha agregado al carrito.
-    private double total;//Sirve para mostrarle al cliente cuánto va a pagar antes de confirmar el pedido.
-    private int cantidadItems; // Sirve para indicarle al cliente cuántos productos tiene en su carrito
+    private List<Plato> listaPlatos; // Lista de todos los platos que el cliente ha agregado al carrito Ejemplo: [Arroz con pollo, Ceviche, Jugo de naranja] Nota: Es como el carrito de compras en una tienda online
+    private double total;// Monto total del carrito (suma de los precios de todos los platos) Ejemplo: 45.50, 78.99, 125.00
+    private int cantidadItems; // Cantidad total de platos (items) que hay en el carrito Ejemplo: 3, 5, 10, etc. Si hay 2 Arroz con pollo y 1 Ceviche, la cantidad es 3
 
     //Constructor
 

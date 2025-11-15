@@ -16,10 +16,10 @@ import java.util.List;
  */
 public class Menu {
     // Atributos
-    private int idMenu; // Identificador del menú
-    private String nombre; // Nombre del menú (p. ej. "Menú infantil")
-    private String descripcion; // Descripción del menú
-    private List<Plato> listaPlatos; // Aquí está: una LISTA de objetos Plato
+    private int idMenu; 
+    private String nombre; // Nombre del menú que se ofrece en el restaurante Ejemplo: "Menú Ejecutivo", "Menú Especial", "Menú del Día", "Menú Premium"
+    private String descripcion;// Descripción detallada del menú (qué incluye, características especiales, etc.) Ejemplo: "Menú con platos tradicionales de la región"
+    private List<Plato> listaPlatos; // Lista de todos los platos que contiene este menú Ejemplo: [Arroz con pollo, Ceviche, Jugo de naranja, Postre del día]
 
     //Constructor 
 

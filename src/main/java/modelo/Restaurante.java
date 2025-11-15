@@ -16,10 +16,10 @@ package modelo;
 public class Restaurante {
     // Atributos del restaurante
     private int idRestaurante;
-    private String nombre;
+    private String nombre;// Ejemplo: "Casa del Sabor", "El Buen Comer", "Mi Comidita"
     private String direccion;
     private String telefono;
-    private String horario;
+    private String horario;// Ejemplo: "09:00 AM - 10:00 PM", "Lunes a Viernes 11:00 - 22:00"
 
     //Constructor
 

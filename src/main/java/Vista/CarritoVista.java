@@ -4,8 +4,7 @@
  */
 package Vista;
 
-import modelo.Carrito;
-import modelo.Plato; // Importamos Plato también, porque lo usamos en la lista
+
 /**
  *
  * @author Usuario
@@ -32,7 +31,7 @@ public class CarritoVista extends javax.swing.JFrame {
         txtTotal = new javax.swing.JTextField();
         txtCantidad = new javax.swing.JTextField();
         lblIdPago = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextPane();
@@ -52,12 +51,12 @@ public class CarritoVista extends javax.swing.JFrame {
         lblIdPago.setForeground(new java.awt.Color(0, 153, 153));
         lblIdPago.setText("Lista de platos");
 
-        jButton1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 153, 153));
-        jButton1.setText("Guardar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(0, 153, 153));
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
@@ -87,7 +86,7 @@ public class CarritoVista extends javax.swing.JFrame {
                     .addComponent(lblMetodo)
                     .addComponent(lblMonto)
                     .addComponent(lblIdPago)
-                    .addComponent(jButton1))
+                    .addComponent(btnGuardar))
                 .addGap(113, 113, 113)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
@@ -123,7 +122,7 @@ public class CarritoVista extends javax.swing.JFrame {
                         .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1)))
+                            .addComponent(btnGuardar)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2)))
@@ -137,32 +136,10 @@ public class CarritoVista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtListaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-   // 1. Obtener los valores de los campos de texto
-    // Convertimos el texto del total a un número decimal (double)
-    double total = Double.parseDouble(txtTotal.getText());
-    // Convertimos el texto de la cantidad a un número entero (int)
-    int cantidad = Integer.parseInt(txtCantidad.getText());
 
-    // 2. Crear una lista vacía de platos (porque no tenemos un campo gráfico para ingresarlos directamente)
-    java.util.List<modelo.Plato> listaPlatos = new java.util.ArrayList<>();
-    
-
-    //Creamos un objeto plato
-    Plato plato2 = new Plato(1,txtLista.getText(), 5, "Combo completo", "Comida Rapida");
-    listaPlatos.add(plato2);
-    // 3. Crear el objeto Carrito usando los datos obtenidos y la lista vacía
-    Carrito carro1 = new Carrito(
-        listaPlatos, // Pasamos la lista vacía
-        total,            // El total obtenido del campo de texto
-        cantidad          // La cantidad obtenida del campo de texto
-    );
-
-    // 4. Mostrar los datos del carrito en el JTextPane
-    txtResultado.setText(carro1.toString());
-
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,7 +155,7 @@ public class CarritoVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

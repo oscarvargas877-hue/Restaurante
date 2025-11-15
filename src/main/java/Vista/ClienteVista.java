@@ -4,7 +4,6 @@
  */
 package Vista;
 
-import modelo.Cliente;
 
 /**
  *
@@ -39,7 +38,7 @@ public class ClienteVista extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         txtContrasena = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnCliente = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextPane();
@@ -73,12 +72,12 @@ public class ClienteVista extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 153, 153));
-        jButton1.setText("Guardar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCliente.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        btnCliente.setForeground(new java.awt.Color(0, 153, 153));
+        btnCliente.setText("Guardar");
+        btnCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnClienteActionPerformed(evt);
             }
         });
 
@@ -106,7 +105,7 @@ public class ClienteVista extends javax.swing.JFrame {
                             .addComponent(lblId)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1)))
+                        .addComponent(btnCliente)))
                 .addGap(113, 113, 113)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
@@ -155,7 +154,7 @@ public class ClienteVista extends javax.swing.JFrame {
                         .addGap(46, 46, 46)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnCliente)
                         .addGap(0, 111, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
@@ -168,17 +167,9 @@ public class ClienteVista extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
         // TODO add your handling code here:
-        //convertimos el id en un int
-        int id = Integer.parseInt(txtId.getText());
-
-       // Creamos el objeto Cliente usando ese ID convertido
-       Cliente cliente1 = new Cliente(id, txtNombre.getText(), txtEmail.getText(), txtContrasena.getText(), txtTelefono.getText());
-
-       // Mostramos los datos del cliente en el JTextPane
-       txtResultado.setText(cliente1.toString());
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,7 +208,7 @@ public class ClienteVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

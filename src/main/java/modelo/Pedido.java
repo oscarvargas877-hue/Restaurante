@@ -20,12 +20,12 @@ import java.util.List; // Importamos la clase List para poder usar listas
 public class Pedido {
     // Atributos
     private int idPedido;
-    private Cliente cliente; // El cliente que hizo el pedido
-    private List<Plato> listaPlatos; // Los platos que pidió
-    private Date fecha; // La fecha en que se hizo
-    private String estado; // "en preparación", "entregado"
-    private double total; // El total del pedido
-    private Pago pago; // El pago asociado a este pedido
+    private Cliente cliente;    // Ejemplo: Cliente con nombre "Juan Pérez", teléfono "0987654321", etc.
+    private List<Plato> listaPlatos;  //lista de todos los platos que ordeno en este pedido Ejemplo: [Arroz con pollo, Ceviche, Jugo de naranja]
+    private Date fecha; // Fecha y hora en que se realizó el pedido
+    private String estado; // Ejemplo: "Pendiente", "En preparación", "Listo", "Entregado"
+    private double total; //Monto total del pedido (suma de todos los platos)Ejemplo: 45.50, 78.99, 125.00
+    private Pago pago; // Objeto Pago que contiene la información del pago del pedido Ejemplo: Pago con método "Efectivo", monto "45.50", estado "Pagado"
 
     //Constructor
 

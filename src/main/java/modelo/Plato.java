@@ -14,7 +14,7 @@ package modelo;
  */
 public class Plato {
     // Atributos
-    private int idPlato;
+    private static int idPlato;
     private String nombre;
     private double precio;
     private String descripcion;
@@ -22,17 +22,22 @@ public class Plato {
 
     //Constructor
 
-    public Plato(int idPlato, String nombre, double precio, String descripcion, String categoria) {
-        this.idPlato = idPlato;
-        this.nombre = nombre;
+    public Plato() {
+         idPlato++;
+    }
+    
+
+    public Plato( String nombre, double precio, String descripcion, String categoria) {
+        this.idPlato = idPlato++;
+        this.nombre = nombre;// Ejemplo: "Arroz con pollo", "Ceviche", "Lomo saltado"
         this.precio = precio;
-        this.descripcion = descripcion;
-        this.categoria = categoria;
+        this.descripcion = descripcion;// Ejemplo: "Arroz blanco con pollo a la plancha, cebolla y ají"
+        this.categoria = categoria;// Ejemplo: "Plato fuerte", "Bebida", "Postre", "Entrada", "Sopa"
     }
     
     //Metodos set y get
 
-    public int getIdPlato() {
+    public static int getIdPlato() {
         return idPlato;
     }
 
@@ -71,6 +76,7 @@ public class Plato {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+   
 
     @Override
     public String toString() {
