@@ -17,6 +17,7 @@ Vista\PlatoVista$2.class
 modelo\Carrito.class
 Vista\CarritoVista.class
 Vista\MenuVista$2.class
+Controlador\PlatoControlador.class
 Vista\MenuVista.class
 Vista\PedidoVista$3.class
 Vista\CarritoVista$1.class
@@ -34,3 +35,4 @@ Main\Main.class
 Vista\ClienteVista$1.class
 Vista\PlatoVista$3.class
 modelo\Plato.class
+Vista\CarritoVista$3.class

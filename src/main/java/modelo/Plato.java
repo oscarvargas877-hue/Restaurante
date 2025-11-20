@@ -28,7 +28,7 @@ public class Plato {
     
 
     public Plato( String nombre, double precio, String descripcion, String categoria) {
-        this.idPlato = idPlato++;
+        this(); // llama al constructor vacío para asignar ID
         this.nombre = nombre;// Ejemplo: "Arroz con pollo", "Ceviche", "Lomo saltado"
         this.precio = precio;
         this.descripcion = descripcion;// Ejemplo: "Arroz blanco con pollo a la plancha, cebolla y ají"

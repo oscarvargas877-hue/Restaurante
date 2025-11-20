@@ -34,6 +34,8 @@ public class Main {
         PlatoVista vista = new PlatoVista();
          // Paso 3: Crear el CONTROLADOR (conecta modelo y vista)
         PlatoControlador controlador = new PlatoControlador(modelo, vista);
+        // LÍNEA QUE ARREGLA TODO
+        vista.setControlador(controlador);//sirve para presentarle a la vista quien es su controlador
          // Paso 4: Iniciar la aplicación
         controlador.iniciar();
         

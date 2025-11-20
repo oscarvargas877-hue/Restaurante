@@ -5,6 +5,8 @@
 package Vista;
 
 
+import Controlador.PlatoControlador;
+import java.awt.Button;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -14,12 +16,17 @@ import javax.swing.JOptionPane;
  * @author Usuario
  */
 public class PlatoVista extends javax.swing.JFrame {
-
+    // ATRIBUTO PARA EL CONTROLADOR (ESTO FALTABA)
+    private PlatoControlador controlador;
     /**
      * Creates new form Plato
      */
     public PlatoVista() {
         initComponents();
+    }
+    // MÉTODO PARA RECIBIR EL CONTROLADOR DESDE AFUERA
+    public void setControlador(PlatoControlador controlador) {
+        this.controlador = controlador;
     }
 
     /**
@@ -46,6 +53,7 @@ public class PlatoVista extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextPane();
         jLabel2 = new javax.swing.JLabel();
+        btnBorrar = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,6 +101,16 @@ public class PlatoVista extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/image4.jpg"))); // NOI18N
 
+        btnBorrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnBorrar.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        btnBorrar.setForeground(new java.awt.Color(0, 153, 153));
+        btnBorrar.setLabel("Borrar\n");
+        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -126,7 +144,9 @@ public class PlatoVista extends javax.swing.JFrame {
                             .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(8, 8, 8)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(131, 131, 131)
+                                .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(239, 239, 239)
@@ -165,13 +185,19 @@ public class PlatoVista extends javax.swing.JFrame {
                     .addComponent(lblCategoria))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(btnGuardar)
-                        .addContainerGap(192, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(btnGuardar)
+                                .addGap(0, 186, Short.MAX_VALUE)))
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())))
+                        .addGap(43, 43, 43)
+                        .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -184,24 +210,48 @@ public class PlatoVista extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+        // TODO add your handling code here:
+        controlador.borrarCampos();
+    }//GEN-LAST:event_btnBorrarActionPerformed
+    // ===================== MÉTODOS DE LA VISTA =====================
+    public void borrarCampos() {
+        txtNombre.setText("");
+        txtPrecio.setText("");
+        txtDescripcion.setText("");
+        txtCategoria.setText("");
+        txtResultado.setText("");  // Borra el resultado también
+        txtNombre.requestFocus();  // Vuelve al primer campo
+    }
+    // GETTER PARA EL BOTÓN BORRAR
+    public Button getBtnBorrar() {
+        return btnBorrar;
+    }
     //AÑADIR ENCAPSULAMIENTO
-    public String getCampoNombre(){
-        return txtNombre.getText();
+    public String getCampoNombre() {
+        return txtNombre.getText().trim();//trim elimina los espacios en blanco al inicio y final de una cadena de texto
     }
-    public double getCampoPrecio(){
-        return Double.parseDouble(txtPrecio.getText());
+
+    public String getCampoDescripcion() {
+        return txtDescripcion.getText().trim();
     }
-    public String getCampoDescripcion(){
-        return txtDescripcion.getText();
+
+    public String getCategoria() {
+        return txtCategoria.getText().trim();
     }
-    public String getCategoria(){
-        return txtCategoria.getText();
+
+    // Método seguro para precio (devuelve el texto, no el número)
+    public String getPrecioTexto() {
+        return txtPrecio.getText().trim();
     }
-     public JButton getCampoGuardar(){
-         return btnGuardar;
+
+    public JButton getCampoGuardar() {
+        return btnGuardar;
     }
-    public void setCampoResultado(String mensaje) {
-    txtResultado.setText(mensaje);
+
+    public void setCampoResultado(String texto) {
+        txtResultado.setText(texto);
     }
     public void mostrarMensaje(String mensaje){
         JOptionPane.showMessageDialog(rootPane, mensaje, mensaje, HEIGHT);
@@ -243,6 +293,7 @@ public class PlatoVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button btnBorrar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
